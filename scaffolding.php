@@ -7,9 +7,47 @@
  * generally scaffolds are files with some html structure that is filled with content and printed to the 
  * page. scaffolds can be called recursively 
  * 
-
  * 
- * @author Nick Blackwell
+ * @author Nick Blackwell https://people.ok.ubc.ca/nblackwe
+ * @tutorial
+ * 
+ * This will get it working.
+ * 
+ * $scaffold=new Scaffolding(); //this will add the folder 'scaffolds' if it exists
+ * $scaffold->setPath(...) //default folder of scaffolds
+ * $scaffold->setPath(...) //some other folder might overide a few scaffolds from the folder before it
+ * 
+ * ...
+ * ...
+ * 
+ * $scaffold->build('html.article',
+ * 		array(
+ * 			'title'=>'An Article',
+ * 			'text'=>'Article Body',
+ * 			'author'=>'Some Author'
+ * 		));
+ * 
+ * 
+ * This is how I use it.
+ * 
+ * global $scaffold;
+ * $scaffold=new Scaffolding();
+ * 
+ * function html($name, $args, $path=null){
+ * 		global $scaffold;
+ * 		$scaffold->build('html.'.$name, $args, $path);
+ * }
+ * 
+ * ...
+ * ...
+ *
+ * html('article',array(
+ * 		array(
+ * 			'title'=>'An Article',
+ * 			'text'=>'Article Body',
+ * 			'author'=>'Some Author'
+ * 		));
+ * 
  * 
  */
 
