@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Requires php 5
+ * Requires php 5.4+ (uses anonymous functions)
  * 
  * Scaffolds are a really quick and simple way to create reusable consitent content. Scaffolds are very loosly defined. 
  * generally scaffolds are files with some html structure that is filled with content and printed to the 
