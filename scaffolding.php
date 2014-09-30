@@ -28,26 +28,29 @@
  * 		));
  * 
  * 
- * This is how I use it.
+ * This is how I use it. 
  * 
  * global $scaffold;
  * $scaffold=new Scaffolding();
  * 
+ * $scaffold->setPath($folder)
+ * 
+ * //put all the html scaffolds in $folder/html/
  * function html($name, $args, $path=null){
  * 		global $scaffold;
- * 		$scaffold->build('html.'.$name, $args, $path);
+ * 		return $scaffold->build('html.'.$name, $args, $path);
+ * 		//scaffolds might return things
  * }
  * 
  * ...
- * ...
- *
+ * ... 
+ * 
  * html('article',array(
  * 		array(
  * 			'title'=>'An Article',
  * 			'text'=>'Article Body',
  * 			'author'=>'Some Author'
  * 		));
- * 
  * 
  */
 
