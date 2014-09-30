@@ -4,7 +4,7 @@
 /**
  * Article scaffold (html.article) renders an html5 article using microdata 
  * this scaffold accepts varios microdata schema arguments to create Search Engine Optimized content. 
- * HtmlBlock('article', array("title"=>"...", "text"=>["..."], "author"=>"...", ... )
+ * ('html.article', array("title"=>"...", "text"=>["..."], "author"=>"...", ... )
  */
 
 
