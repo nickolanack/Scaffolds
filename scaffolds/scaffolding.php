@@ -117,9 +117,7 @@ class Scaffolding{
 		
 			}
 		}
-		if(!file_exists(GEOLIVE::ScaffoldsDIR())){
-			throw new Exception("Expected to find Scaffold file at:".GEOLIVE::ScaffoldsDIR().' for Scaffold: '.$name);
-		}
+
 		echo "invalid form: ".$name;
 		$this->_remove($path);
 			
