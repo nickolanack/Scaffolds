@@ -66,7 +66,7 @@ class Scaffolding{
 	private $paths=array();
 	
 	/**
-	 * keeps track of the current list of scaffolds called (depth)
+	 * keeps track of the current list of scaffolds rendered. (depth)
 	 * @var array<string> of recursively included files 
 	 */
 	private $_stack=array();
@@ -75,7 +75,9 @@ class Scaffolding{
 	
 	public function Scaffolding(){
 		$default=__DIR__.DS.'scaffolds';
-		if(file_exists($default))$this->setPath($default);
+		if(file_exists($default))$this->setPath($default); 
+		
+		//add the folder, 'scaffolds' if it exists and is in the same directory as this file.
 		
 	}
 	
@@ -149,6 +151,13 @@ class Scaffolding{
 		return array_reverse($this->paths);
 	}
 	
+	/**
+	 * 
+	 * @param string $name a stirng using dot notation, dots can dots might be replaced with directory seperators 
+	 * from left to right. so that for example 'one.two.three' could be a file 'one.two.three.php' or one/two.three.php or 
+	 * one/two/three.php in this way scaffolds can be categorized by 
+	 * @return multitype:string
+	 */
 	private function _names($name){
 		
 		$names=array();
