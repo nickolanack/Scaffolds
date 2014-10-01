@@ -5,6 +5,10 @@ Scaffolds is a php library for creating content from a directory of structural p
 
 Simple Website with Scaffolds
 =========
+
+This example works at media.geolive.ca/placemark-tool 
+I have included an additional scaffold folder svn which is not included in the source files of this project
+
 ```php
 include_once 'lib/scaffolds/scaffolding.php';
 
