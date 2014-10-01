@@ -15,19 +15,10 @@ include_once 'lib/scaffolds/scaffolding.php';
 global $scaffold;
 $scaffold=new Scaffolding();
 
-
-function SVG($name, $params=array()){
-	
-	global $scaffold;
-	return $scaffold->build('svg.'.$name, $params);
-	
-}
-
+//helper function 
 function HTML($name, $params=array()){
-
 	global $scaffold;
 	return $scaffold->build('html.'.$name, $params);
-
 }
 
 
