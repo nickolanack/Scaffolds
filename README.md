@@ -35,7 +35,7 @@ HTML('document', array(
 		'buffered'=>false,
 		'title'=>'Placemark Icon Generator | By Nick Blackwell',
 		'description'=>'The placemark generator tool was created by Nick Blackwell. The tool allows you to generate custom placemark icons by adjusting styles and overlays',
-		'generator'=>'Nick Blackwell | https://people.ok.ubc.ca',
+		'generator'=>'Nick Blackwell | https://people.ok.ubc.ca/nblackwe',
 		'header'=>function(){
 			?>
 			<style>
