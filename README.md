@@ -53,14 +53,14 @@ HTML('document', array(
 					function(){
 					?>
 						
-						first article text
+						first paragraph text
 							
 					<?php 
 					},
 					function(){
 					?>
 						
-						second article text
+						second paragraph text
 							
 					<?php 
 
