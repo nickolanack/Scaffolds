@@ -5,7 +5,7 @@ Scaffolds is a php library for creating content from a directory of structural p
 
 Simple Website with Scaffolds
 =========
-
+```php
 include_once 'lib/scaffolds/scaffolding.php';
 
 global $scaffold;
