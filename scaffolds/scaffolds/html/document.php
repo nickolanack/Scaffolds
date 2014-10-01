@@ -49,7 +49,7 @@ if($config['buffered']){
 			$config['header']();
 		
 		if($config['title']){
-			?><meta name="title" content="<?php echo htmlspecialchars($config['title']);?>" />
+			?><title><?php echo htmlspecialchars($config['title']);?></title>
 			<?php 
 		}
 

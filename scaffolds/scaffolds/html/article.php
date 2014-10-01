@@ -21,9 +21,9 @@ $config=array_merge(array(
 		'timestamps'=>array(),
 		'author'=>array('Created By'=>'Nick Blackwell'),
 		'authorLink'=>false,
-		'link'=>'/',
+		'link'=>false,
+		'linkTitle'=>'view the full article',
 		'images'=>false,
-		'linkTitle'=>'on the map',
 		'schema'=>array()
 	),$params);
 
