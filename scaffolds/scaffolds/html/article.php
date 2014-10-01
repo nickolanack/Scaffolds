@@ -17,8 +17,8 @@ $config=array_merge(array(
 				'The first paragraph if $params["text"] is an array otherwise the only paragraph is $params["text"] is a string',
 				'The second paragraph if $params["text"] is an array.'
 		),
-		'footer'=>'$params["footer"] text content ... ',
-		'timestamps'=>array('created date example'=>GEOLIVE::System()->getSystemDate()),
+		'footer'=>false,
+		'timestamps'=>array(),
 		'author'=>array('Created By'=>'Nick Blackwell'),
 		'authorLink'=>false,
 		'link'=>'/',
@@ -52,8 +52,14 @@ $config=array_merge(array(
     <<?php echo $h1; $schema('h');?>><?php echo $config['title'];?></<?php echo $h1; ?>>
     <?php 
     foreach($config['timestamps'] as $label=>$datetime){
+		$datetimeText=$datetime;
+		if(is_array($datetimeText)){
+			$datatimeText=array_values($datetimeText);
+			$datetime=$datetimeText[0];
+			$datetimeText=array_pop($datetimeText);
+		}
     	?>
-    <time datetime="<?php echo $datetime; ?>"><label><?php echo $label?> </label><?php echo GEOLIVE::System()->timeFromNow($datetime);?></time>
+    <time datetime="<?php echo $datetime; ?>"><label><?php echo $label?> </label><?php echo $datetimeText;?></time>
     	<?php 	
     }
     $authors=false;
@@ -75,13 +81,13 @@ $config=array_merge(array(
 	
 		if($config['authorLink']){
 				?>
-		<label><?php echo $authorLabel?></label><a<?php $schema('authorName');?> href="<?php echo $config['authorLink'];?>"><?php 
+		<label><?php echo $authorLabel?> </label><a<?php $schema('authorName');?> href="<?php echo $config['authorLink'];?>"><?php 
 		
-		echo $author;?></a>
+		echo $author;?> </a>
 			<?php 
 		}else{
 		?>
-		<label><?php echo $authorLabel?></label><span<?php $schema('authorName');?>><?php echo $author;?></span>
+		<label><?php echo $authorLabel?> </label><span<?php $schema('authorName');?>><?php echo $author;?> </span>
 		<?php
 		}
 		?>
@@ -129,7 +135,14 @@ $config=array_merge(array(
   		$i=0;
 	  	foreach($texts as $p){
 		?>	  	
-		<p<?php $schema('p'.$i)?>><?php echo $p;?></p>
+		<p<?php $schema('p'.$i)?>><?php 
+			if($p instanceof Closure){
+			$p();
+		}else{
+			echo $p;
+		}
+			
+		?></p>
 		<?php 
 		$i++;
 	  	}
@@ -153,7 +166,14 @@ $config=array_merge(array(
 	if($config['footer']){
   		?>
   	<footer>
-    	<p><?php echo $config['footer']; ?></p>
+    	<p><?php 
+    	if($config['footer'] instanceof Closure){
+    		$config['footer']();
+    	}else{
+    		echo $config['footer']; 
+    	}
+    	
+    	?></p>
   	</footer>
 	  	<?php 
   	}else{
