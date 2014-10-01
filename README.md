@@ -23,7 +23,7 @@ function HTML($name, $params=array()){
 
 
 HTML('document', array(
-		'buffered'=>false,
+		'buffered'=>false, //default is true, it would buffer the body, and actual process the body before the header so that includes could be added in the body and written to the head
 		'title'=>'Placemark Icon Generator | By Nick Blackwell',
 		'description'=>'The placemark generator tool was created by Nick Blackwell. The tool allows you to generate custom placemark icons by adjusting styles and overlays',
 		'generator'=>'Nick Blackwell | https://people.ok.ubc.ca/nblackwe',
