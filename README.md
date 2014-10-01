@@ -6,7 +6,9 @@ Scaffolds is a php library for creating content from a directory of structural p
 Simple Website with Scaffolds
 =========
 
-'''php
+Here is a simple web page with nothing really exciting..
+
+```php
 <?php
 include_once 'lib/scaffolds/scaffolding.php';
 
@@ -37,10 +39,7 @@ HTML('document', array(
 		'header'=>function(){
 			?>
 			<style>
-			body, pre, h1{
-				font-family: sans-serif;
-				font-weight: 100;
-			}
+			
 			</style>
 			<?php 		
 		},
@@ -52,83 +51,18 @@ HTML('document', array(
 				'title'=>'Placemark Icon Generator',
 				'text'=>array(
 					function(){
-						?>
-							Instructions: ... here ...
+					?>
+						
+						first article text
 							
-						<?php 
+					<?php 
 					},
 					function(){
-
-						$get_color=function($name, $default="123456"){
-							if(key_exists($name, $_GET)){
-								$c=$_GET[$name];
-								 preg_replace('/[^0-9A-F]/', '', strtoupper($c));
-								if(strlen($c)!=6)return $default;
-								return ''.$c;
-							}
-							return $default;
-						};
-						$base='placemark';
-						$files=array();
-						foreach(array(256, 128, 64, 32, 24, 16) as $w){
-							
-							
-							$fill=$get_color('fill','725f1e');
-							$stroke=$get_color('stroke','a73e10');
-							
-							$file=$base.'-'.$fill.'-'.$stroke.'-'.$w.'.png';
-							$files[]=$file;
-							$zip=$base.'-'.$fill.'-'.$stroke.'.zip';
-							
-							if(!file_exists($file)){
-							
-								ob_start();
-								SVG($base, array(
-									'fill'=>'#'.$fill,
-									'stroke'=>'#'.$stroke,
-									'width'=>$w
-								));
-								$svg=ob_get_contents();
-								ob_end_clean();
-								$im=new Imagick();
-								$im->readImageBlob('<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
-  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Created by Nick Blackwell (https://people.ok.ubc.ca/nblackwe/) -->'.$svg);
-							
-								/*png settings*/
-								$im->setImageFormat("PNG32");
-								
-								
-								
-								$im->writeImage($file);
-								$im->clear();
-								$im->destroy();
-							}
-							
-							?><img src="<?php echo $file;?>" /><?php 
-							
-
-						}
-						$zipFile=$base.'-'.$fill.'-'.$stroke.'.zip';
-						if(!file_exists($zipFile)){
-							$zip=new ZipArchive();
-							if ($zip->open($zipFile, ZipArchive::CREATE)!==TRUE) {
-								die('Failed to create file: '.$zipFile);
-							}
-							foreach($files as $f){
-								$zip->addFile($f);
-							}
-							$zip->close();
-	
-						}
+					?>
 						
-						?><a href="<?php echo $zipFile;?>">download</a><?php 
-						
-					},
-					function(){
-			
-						HTML('license.mit');						
+						second article text
+							
+					<?php 
 
 					}
 					
@@ -138,8 +72,11 @@ HTML('document', array(
 				
 		}
 ));
-'''
+```
 
+
+
+Here is a working example with more interesting content
 
 This example works at [media.geolive.ca/placemark-tool](media.geolive.ca/placemark-tool)  
 I have included an additional scaffold folder svn which is not included in the source files of this project this project also 
@@ -148,6 +85,7 @@ uses Imagick. ( something similar to: yum install imagick, yum install php54w-pe
 
 
 ```php
+<?php
 include_once 'lib/scaffolds/scaffolding.php';
 
 global $scaffold;
