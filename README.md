@@ -6,7 +6,7 @@ Scaffolds is a php library for creating content from a directory of structural p
 Simple Website with Scaffolds
 =========
 
-This example works at (media.geolive.ca/placemark-tool)  
+This example works at [media.geolive.ca/placemark-tool](media.geolive.ca/placemark-tool)  
 I have included an additional scaffold folder svn which is not included in the source files of this project this project also 
 uses Imagick. ( something similar to: yum install imagick, yum install php54w-pecl-imagick ) 
 
