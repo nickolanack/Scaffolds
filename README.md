@@ -69,7 +69,7 @@ HTML('document', array(
 
 Here is a working example with more interesting content
 
-This example works at [http://media.geolive.ca/placemark-tool](media.geolive.ca/placemark-tool)  
+This example works at [http://media.geolive.ca/placemark-tool](http://media.geolive.ca/placemark-tool)  
 I have included an additional scaffold folder svn which is not included in the source files of this project this project also 
 uses Imagick. ( something similar to: yum install imagick, yum install php54w-pecl-imagick ) 
 
