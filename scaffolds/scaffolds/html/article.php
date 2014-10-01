@@ -134,15 +134,27 @@ $config=array_merge(array(
   	if(count($texts)){
   		$i=0;
 	  	foreach($texts as $p){
+
+
+		$t_start='p';
+		
+		if(is_array($p)&&count($p)==2&&is_string($p[0])){
+			$t_start=$p[0];
+			$t_end=explode(' ',trim($t_start));
+			$t_end=$t_end[0];
+			$p=$p[1];
+		}
+		
+
 		?>	  	
-		<p<?php $schema('p'.$i)?>><?php 
+		<<?php echo $t_start.' '; $schema($t_end.$i)?>><?php 
 			if($p instanceof Closure){
 			$p();
 		}else{
 			echo $p;
 		}
 			
-		?></p>
+		?></<?php echo $t_end;?>>
 		<?php 
 		$i++;
 	  	}
