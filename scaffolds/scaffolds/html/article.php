@@ -137,7 +137,7 @@ $config=array_merge(array(
 
 
 		$t_start='p';
-		
+		$t_end=$t_start;
 		if(is_array($p)&&count($p)==2&&is_string($p[0])){
 			$t_start=$p[0];
 			$t_end=explode(' ',trim($t_start));
