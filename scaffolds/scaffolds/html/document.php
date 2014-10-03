@@ -46,6 +46,12 @@ if($config['buffered']){
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<?php
+		
+		if($config['base']){
+			?><base href="<?php echo $config['base']; ?>" />
+					<?php
+		}
+		
 			$config['header']();
 		
 		if($config['title']){
@@ -70,11 +76,6 @@ if($config['buffered']){
 		
 		if($config['icon']){
 			?><link rel="icon" type="image/<?php echo end(explode('.', ($config['icon'])));?>" href="<?php echo $config['icon']?>"/>
-			<?php
-		}
-
-		 if($config['base']){
-			?><base href="<?php $config['base']; ?>" />
 			<?php
 		}?>
 		
