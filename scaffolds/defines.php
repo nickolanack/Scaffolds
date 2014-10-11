@@ -1,5 +1,7 @@
 <?php
 
+include_once 'scaffolding.php';
+
 global $scaffold;
 if(is_null($scaffold)){
 	$scaffold=new Scaffolding();
