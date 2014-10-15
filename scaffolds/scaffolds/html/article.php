@@ -112,9 +112,10 @@ $config=array_merge(array(
   	}
   	$iStr=array("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten");
   	foreach($images as $i=>$image){
+		
   		?>
-  		<a <?php $schema('imageLink')?> href="<?php echo $image; ?>?thumb=720x720">
-  		<img<?php $schema('image')?> src="<?php echo $image; ?>?thumb=>72x>72"  alt="Photo <?php echo $iStr[$i]." - ".htmlspecialchars($config['title']);?>" width="" height="" />
+  		<a <?php $schema('imageLink')?> href="<?php echo $image; ?>">
+  		<img<?php $schema('image')?> src="<?php echo $image; ?>"  alt="Photo <?php echo $iStr[$i]." - ".htmlspecialchars($config['title']);?>" width="" height="" />
   		</a>
   		<?php 
   	}
