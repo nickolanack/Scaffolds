@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * Scaffold('html.media.audio', array('file.wav', 'file.mp3' ...);
+ */
+
+
 	$config=array_merge(array(
 		'controls'=>true,
 		'src'=>false
