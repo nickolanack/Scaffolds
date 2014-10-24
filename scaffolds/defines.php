@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Optionally include this file, instead of including scaffold.php
+ * it includes and initializes Scaffolds, and creates HTML() method
+ */
+
 include_once 'scaffolding.php';
 
 global $scaffold;
