@@ -20,7 +20,7 @@ $config=array_merge(array(
 		'footer'=>false,
 		
 		'schema'=>array(),
-		'classnames'=>array()
+		'classNames'=>array()
 		
 	),$params);
 
@@ -29,9 +29,9 @@ $config=array_merge(array(
 			'span0'=>'itemprop="description"',
 			),$config['schema']);
 	
-	$config['classnames']=array_merge(array(
+	$config['classNames']=array_merge(array(
 			'section'=>'main',
-	),$config['classnames']);
+	),$config['classNames']);
 	
 
 	$h1='h'.$config['heading'];
@@ -56,8 +56,8 @@ $config=array_merge(array(
 			});
 			echo ' '.str_replace('%', trim($name), $fmt).' ';
 		}else{
-			if(key_exists('classnames', $config)&&key_exists($name, $config['classnames'])){
-				echo ' '.str_replace('%', $config['classnames'][$name], $fmt).' ';
+			if(key_exists('classNames', $config)&&key_exists($name, $config['classNames'])){
+				echo ' '.str_replace('%', $config['classNames'][$name], $fmt).' ';
 			}
 		}
 		
