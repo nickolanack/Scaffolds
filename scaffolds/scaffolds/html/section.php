@@ -17,6 +17,7 @@ $config=array_merge(array(
 				
 				'The first content item if $params["content"] is an array otherwise the only paragraph is $params["content"] is a string',
 				'The second content item if $params["content"] is an array.'
+				
 		),
 		
 		'footer'=>false,
@@ -35,10 +36,8 @@ $config=array_merge(array(
 			'section'=>'main',
 	),$config['classNames']);
 	
-
 	$h1='h'.$config['heading'];
 
-	
 	$schema=function($name)use(&$config){
 		if(key_exists('schema', $config)&&key_exists($name, $config['schema'])){
 			echo ' '.$config['schema'][$name].' ';
@@ -117,7 +116,7 @@ $config=array_merge(array(
 	  	
   	}else{
   		?>
-  	<!-- $params['content'] //string or array of strings -->
+  	<!-- $params['content'] (<?php gettype($params['content']); ?>)//string or array of strings -->
   		<?php 
   	}
   	?> 	
@@ -142,7 +141,4 @@ $config=array_merge(array(
   		<?php 
   	}
   ?>
- 
-
- 
 </section>
