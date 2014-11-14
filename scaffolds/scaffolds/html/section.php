@@ -67,7 +67,7 @@ $config=array_merge(array(
 	
 ?><section<?php $schema('section');?><?php $classnames('section');?> title="<?php echo htmlspecialchars($config['title']);?>">
   <header>
-    <<?php echo $h1; $schema('h');?>><?php echo $config['title'];?></<?php echo $h1; ?>>
+    <<?php echo $h1; $schema('h');?><?php $classnames('h');?> ><?php echo $config['title'];?></<?php echo $h1; ?>>
   	<!-- add optional content to header -->
   </header>
   <?php   
