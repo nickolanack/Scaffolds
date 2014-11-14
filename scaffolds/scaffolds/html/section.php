@@ -14,9 +14,11 @@ $config=array_merge(array(
 		'title'=>'An Example Section $params["title"]',
 		'heading'=>1,
 		'content'=>array(
+				
 				'The first content item if $params["content"] is an array otherwise the only paragraph is $params["content"] is a string',
 				'The second content item if $params["content"] is an array.'
 		),
+		
 		'footer'=>false,
 		
 		'schema'=>array(),
@@ -76,16 +78,20 @@ $config=array_merge(array(
   		$texts=array($config['content']);
   	}
   	
+  	if($config['content'] instanceof Closure){
+  		$texts=array($config['content']);
+  	}
+  	
   	if(is_array($config['content'])){
   		$texts=$config['content'];
   	}
+  	
   	?>
-  	 <div>
+  	<div>
   	<?php 
   	if(count($texts)){
   		$i=0;
 	  	foreach($texts as $p){
-
 
 		$t_start='span';
 		$t_end=$t_start;
@@ -96,7 +102,6 @@ $config=array_merge(array(
 			$p=$p[1];
 		}
 		
-
 		?>	  	
 		<<?php echo $t_start.' '; $schema($t_end.$i)?>><?php 
 			if($p instanceof Closure){

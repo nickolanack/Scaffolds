@@ -126,6 +126,10 @@ $config=array_merge(array(
   		$texts=array($config['text']);
   	}
   	
+  	if($config['text'] instanceof Closure){
+  		$texts=array($config['text']);
+  	}
+  	
   	if(is_array($config['text'])){
   		$texts=$config['text'];
   	}
