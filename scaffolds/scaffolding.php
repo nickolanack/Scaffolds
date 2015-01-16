@@ -13,9 +13,9 @@
  * 
  * This will get it working.
  * 
- * $scaffold=new Scaffolding(); //this will add the folder 'scaffolds' if it exists
- * $scaffold->setPath(...) //default folder of scaffolds
- * $scaffold->setPath(...) //some other folder might overide a few scaffolds from the folder before it
+ * $scaffold=new Scaffolding(); // this will add the folder 'scaffolds' if it exists
+ * $scaffold->setPath(...) // default folder of scaffolds
+ * $scaffold->setPath(...) // some other folder might overide a few scaffolds from the folder before it
  * 
  * ...
  * ...
@@ -135,7 +135,7 @@ class Scaffolding{
 		elseif(is_string($path)){
 			$this->paths[]=$path;
 		}else{
-			throw new Exception('Invalide $path:('.gettype($path).') '.$path);
+			throw new Exception('Invalid $path:('.gettype($path).') '.$path);
 		}
 		
 		
