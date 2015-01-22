@@ -30,6 +30,7 @@ $config=array_merge(array(
 	$config['schema']=array_merge(array(
 			'article'=>'itemscope itemtype="http://schema.org/Thing"',
 			'h'=>'itemprop="name"',
+			'afterHeader'=>false,
 			'p0'=>'itemprop="description"',
 			'author'=>'itemscope itemtype="http://schema.org/Person"',
 			'link'=>'itemprop="url"',
@@ -51,6 +52,9 @@ $config=array_merge(array(
   <header>
     <<?php echo $h1; $schema('h');?>><?php echo $config['title'];?></<?php echo $h1; ?>>
     <?php 
+    
+    if($config['afterHeader'])echo $config['afterHeader'];
+    
     foreach($config['timestamps'] as $label=>$datetime){
 		$datetimeText=$datetime;
 		if(is_array($datetimeText)){
