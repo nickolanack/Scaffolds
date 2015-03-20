@@ -110,7 +110,7 @@ class Scaffolding{
 					$scaffold_run_time_total=$scaffold_end_time-$scaffold_start_time;
 						
 
-					$this->_profile($p.DS.$file, $scaffold_run_time_total, $this->_stack);
+					$this->_profile($name, $p.DS.$file, $scaffold_run_time_total, $this->_stack);
 					
 					array_pop($this->_stack);
 					$this->_remove($path); 
@@ -196,8 +196,8 @@ class Scaffolding{
 		
 	}
 	
-	private function _profile($file, $time, $stack){
-		file_put_contents($file.'.profile', date_format(date_create(),'Y-m-d H:i:s').' '.$time.' '.(implode('>', $stack))."\n", FILE_APPEND);
+	private function _profile($name, $file, $time, $stack){
+		file_put_contents(__DIR__.DS.'.scaffolds.profile.json', json_encode(array('date'=>date('Y-m-d H:i:s'), 'timestamp'=>time(), 'name'=>$name, 'time'=>$time, 'stack'=>implode('>', $stack)))."\n", FILE_APPEND);
 	}
 	
 }
