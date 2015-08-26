@@ -33,12 +33,15 @@ class ScaffoldsTest extends PHPUnit_Framework_TestCase {
     /**
      * @runInSeparateProcess
      */
-    public function testInclude() {
+    public function testScaffoldDocument() {
         include_once dirname(__DIR__) . '/scaffolds/defines.php';
         
         ob_start();
         
-        HTML('document', array());
+        HTML('document', array(
+            'header' => function () {},
+            'body' => function () {}
+        ));
         
         $content = ob_get_contents();
         ob_end_clean();
