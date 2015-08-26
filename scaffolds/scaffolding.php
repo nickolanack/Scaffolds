@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Requires php 5.4+ (uses anonymous functions)
+ * Requires php 5.3+ (uses anonymous functions)
  *
  * Scaffolds are a really quick and simple way to create reusable consistent content. Scaffolds are very loosly defined.
  * generally scaffolds are files with some html structure that is filled with content and printed to the
@@ -28,15 +28,15 @@
  * 		));
  *
  *
- * This is how I use it.
+ * This is how I use it. and can be used this way by only including defines.php
  *
  * global $scaffold;
  * $scaffold=new Scaffolding();
  *
  * $scaffold->setPath($folder)
  *
- * //put all the html scaffolds in $folder/html/
- * function html($name, $args, $path=null){
+ * //put all the HTML scaffolds in $folder/html/
+ * function HTML($name, $args, $path=null){
  * 		global $scaffold;
  * 		return $scaffold->build('html.'.$name, $args, $path);
  * 		//scaffolds might return things
@@ -45,7 +45,7 @@
  * ...
  * ...
  *
- * html('article',array(
+ * HTML('article',array(
  * 		array(
  * 			'title'=>'An Article',
  * 			'text'=>'Article Body',
@@ -59,7 +59,7 @@ class Scaffolding {
      * an array of paths that are searched for files matching a dot notation file naming where '.' can
      * represent a directory seperator or an actual dot character it allows organization of files to
      * be developed progressively.
-     * 
+     *
      * @var array<string> search directories
      */
     private $paths = array();
@@ -67,7 +67,7 @@ class Scaffolding {
     /**
      * keeps track of the current list of scaffolds rendered.
      * (depth)
-     * 
+     *
      * @var array<string> of recursively included files
      */
     private $_stack = array();
@@ -83,11 +83,13 @@ class Scaffolding {
     /**
      *
      * @param string $name
+     *            scaffold name,
      *            uses dot notation to search paths
      * @param array $args
-     *            parameters defined by the scaffold
+     *            any parameters defined by the scaffold
      * @param string $path
-     *            an additional path to use along with the current list of paths
+     *            an additional path to use along with the current list of paths. this path will be removed once complete
+     *            however any nested scaffolds will have access to it.
      */
     public function build($name, $params, $path = null) {
         if (! (is_null($path) || empty($path)))
@@ -123,6 +125,14 @@ class Scaffolding {
         $this->_remove($path);
     }
 
+    /**
+     * add a directory to the list of scaffold search paths.
+     * recently added paths will be searched first
+     *
+     * @param string $path
+     *            directory
+     * @throws Exception
+     */
     public function setPath($path) {
         if (is_array($path)) {
             foreach ($path as $p) {
@@ -137,8 +147,6 @@ class Scaffolding {
 
     /**
      *
-     * @param string $path
-     *            optional additional path, is searched first
      * @return array<string>
      */
     private function _paths() {
