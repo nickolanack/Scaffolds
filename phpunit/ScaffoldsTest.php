@@ -6,7 +6,7 @@ class ScaffoldsTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      */
     public function testIncludehelper() {
-        include_once '../scaffolds/scaffolds/defines.php';
+        include_once dirname(__DIR__) . '/scaffolds/defines.php';
         
         $this->assertEquals(true, class_exists('Scaffolding'));
         $this->assertEquals(true, function_exists('HTML'));
@@ -16,7 +16,7 @@ class ScaffoldsTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      */
     public function testInclude() {
-        include_once '../scaffolds/scaffolds/scaffolding.php';
+        include_once dirname(__DIR__) . '/scaffolds/scaffolding.php';
         $this->assertEquals(true, class_exists('Scaffolding'));
         $this->assertEquals(false, function_exists('HTML'));
     }
