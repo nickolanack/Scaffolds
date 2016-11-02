@@ -194,7 +194,12 @@ class Scaffolding {
     }
 
     private function _profile($name, $file, $time, $stack) {
-        file_put_contents(__DIR__ . DS . '.scaffolds.profile.json', 
+        
+        $file=__DIR__ . DS . '.scaffolds.profile.json';
+
+        ob_start();
+
+        file_put_contents($file, 
             json_encode(
                 array(
                     'date' => date('Y-m-d H:i:s'),
@@ -203,6 +208,15 @@ class Scaffolding {
                     'time' => $time,
                     'stack' => implode('>', $stack)
                 )) . "\n", FILE_APPEND);
+        $warnings=ob_get_contents();
+
+        ob_end_clean();
+
+        if(is_string($warnings)&&trim($warnings)!==''){
+            //TODO: handle warning
+            //echo $warning;
+        }
+
     }
 }
 
