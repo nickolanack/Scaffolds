@@ -8,20 +8,23 @@ php:
   # aliased to a recent 5.3.x version
   # - 5.3
   # aliased to a recent 5.4.x version
-  - 5.4
+  #- 5.4
   # aliased to a recent 5.5.x version
-  - 5.5
+  #- 5.5
   # aliased to a recent 5.6.x version
   - 5.6
   # aliased to a recent 7.x version
   - 7.0
+  - 7.1
   # aliased to a recent hhvm version
-  - hhvm
+  #- hhvm
 
 # omitting "script:" will default to phpunit
 
 before_script:
 - composer install
 
-script: phpunit --configuration phpunit.xml
+script: 
+- phpunit --version
+- phpunit --configuration phpunit.xml
 
