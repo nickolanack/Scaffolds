@@ -1,5 +1,7 @@
 <?php
 
+require_once 'PHPUnit/Autoload.php';
+
 class ScaffoldsTest extends PHPUnit\Framework\TestCase {
 
     /**
