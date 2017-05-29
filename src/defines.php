@@ -9,7 +9,7 @@ include_once __DIR__.'/Scaffolding.php';
 
 global $scaffold;
 if(is_null($scaffold)){
-	$scaffold=new Scaffolding();
+	$scaffold=new nickolanack\Scaffolding();
 }
 
 
