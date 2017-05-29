@@ -3,7 +3,7 @@ Scaffolds
 
 [![Build Status](https://travis-ci.org/nickolanack/Scaffolds.svg?branch=master)](https://travis-ci.org/nickolanack/Scaffolds)
 
-Works with php 5.3+ (tested on 5.3.x - 5.6.x, 7.x, hhvm)
+Works with php 5.4+ (tested on php 5.4 - 5.5, 5.6, 7.0, 7.1, and hhvm)
 
 Scaffolds is a php library for creating content from a directory of structural php files usually containing boilerplate html. Scaffolds are resolved by name using dot notation, so that for example html5.article might be found in a folder named html5 and the file named article.php. the purpose of Scaffolds is to create reusable html or other code quickly allowing organization of the code to be progressively applied 
 
