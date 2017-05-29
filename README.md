@@ -14,10 +14,10 @@ Here is a simple web page with nothing really exciting..
 
 ```php
 <?php
-include_once 'lib/scaffolds/scaffolding.php';
+include_once 'vendor/autoload.php';
 
 global $scaffold;
-$scaffold=new Scaffolding();
+$scaffold=new nickolanack\Scaffolding();
 
 //helper function 
 function HTML($name, $params=array()){
