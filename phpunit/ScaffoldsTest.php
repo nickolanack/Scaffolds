@@ -1,6 +1,6 @@
 <?php
 
-class ScaffoldsTest extends PHPUnit_Framework_TestCase {
+class ScaffoldsTest extends PHPUnit\Framework\TestCase {
 
     /**
      * @runInSeparateProcess
