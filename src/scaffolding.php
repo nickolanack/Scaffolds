@@ -56,7 +56,7 @@ namespace nickolanack;
  *          'author'=>'Some Author'
  *      ));
  */
-class scaffolding {
+class Scaffolding {
 
     /**
      * an array of paths that are searched for files matching a dot notation file naming where '.' can
