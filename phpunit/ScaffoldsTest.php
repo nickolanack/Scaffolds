@@ -1,8 +1,8 @@
 <?php
 
-require_once 'PHPUnit/Autoload.php';
+use PHPUnit\Framework\TestCase;
 
-class ScaffoldsTest extends PHPUnit\Framework\TestCase {
+class ScaffoldsTest extends TestCase {
 
     /**
      * @runInSeparateProcess
