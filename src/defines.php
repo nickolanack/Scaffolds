@@ -5,7 +5,7 @@
  * it includes and initializes Scaffolds, and creates HTML() method
  */
 
-include_once 'scaffolding.php';
+include_once __DIR__.'/Scaffolding.php';
 
 global $scaffold;
 if(is_null($scaffold)){

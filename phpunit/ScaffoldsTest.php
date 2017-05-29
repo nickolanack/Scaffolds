@@ -6,9 +6,9 @@ class ScaffoldsTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      */
     public function testIncludehelper() {
-        include_once dirname(__DIR__) . '/scaffolds/defines.php';
-        
-        $this->assertEquals(true, class_exists('Scaffolding'));
+        include_once dirname(__DIR__) . '/vendor/autoload.php';
+        include_once dirname(__DIR__) . '/src/defines.php';
+        $this->assertEquals(true, class_exists('nickolanack\Scaffolding'));
         $this->assertEquals(true, function_exists('HTML'));
     }
 
@@ -16,8 +16,8 @@ class ScaffoldsTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      */
     public function testInclude() {
-        include_once dirname(__DIR__) . '/scaffolds/scaffolding.php';
-        $this->assertEquals(true, class_exists('Scaffolding'));
+        include_once dirname(__DIR__) . '/vendor/autoload.php';
+        $this->assertEquals(true, class_exists('nickolanack\Scaffolding'));
         $this->assertEquals(false, function_exists('HTML'));
     }
 
@@ -25,7 +25,7 @@ class ScaffoldsTest extends PHPUnit_Framework_TestCase {
      * @runInSeparateProcess
      */
     public function testScaffoldDocument() {
-        include_once dirname(__DIR__) . '/scaffolds/defines.php';
+        include_once dirname(__DIR__) . '/src/defines.php';
         
         ob_start();
         
